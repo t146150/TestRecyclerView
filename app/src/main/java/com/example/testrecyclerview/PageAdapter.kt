@@ -31,14 +31,4 @@ class PageAdapter(var pages: List<List<String>>) : RecyclerView.Adapter<PageAdap
         this.pages = newPages
         notifyDataSetChanged()
     }
-
-    fun updatePagesWithNotify(newPages: List<List<String>>, oldPageCount: Int) {
-        val newPageCount = newPages.size
-        this.pages = newPages
-        when {
-            newPageCount > oldPageCount -> {
-                notifyItemInserted(newPageCount - 1)
-            }
-        }
-    }
 } 

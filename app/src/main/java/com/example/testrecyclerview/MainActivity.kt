@@ -52,9 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun addImage() {
         val url = getRandomImageUrl()
         imageViewModel.addImage(url)
-        val oldPageCount = pageAdapter.pages.size
-        val newPages = imageViewModel.imageUrls.chunked(pageSize)
-        pageAdapter.updatePagesWithNotify(newPages, oldPageCount)
+        pageAdapter.updatePages(imageViewModel.imageUrls.chunked(pageSize))
         viewPager.setCurrentItem((imageViewModel.imageUrls.size - 1) / pageSize, true)
     }
 
